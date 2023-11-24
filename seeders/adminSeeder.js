@@ -13,12 +13,22 @@
  *
  */
 
-const { fakerES: faker } = require("@faker-js/faker");
-const User = require("../models/User");
+const Admin = require("../models/Admin");
+const bcrypt = require("bcryptjs");
 
 module.exports = async () => {
-  /**
-   * Escribir código del seeder aquí...
-   */
-  console.log("[Database] Se corrió el seeder de Users.");
+
+  const admins = [];
+  const hashedPassword = await bcrypt.hash("1234", 10);
+
+  const admin = new Admin({
+    firstname: "Dios",
+    lastname: "Santo",
+    email: "diossanto@admin.com",
+    password: hashedPassword,
+  });
+  admins.push(admin);
+
+  await Admin.insertMany(admins);
+  console.log("[Database] Se corrió el seeder de Admins.");
 };

@@ -27,22 +27,10 @@ async function runAllSeeders() {
   // await mongoose.connection.dropDatabase();
 
   // Seeders:
-
-  await require("./userSeeder")();
-
-  /**
-   * Aquí se pueden ejectuar otros seeders que hayan en el sistema.
-   * Por ejemplo, si se tuviesen seeders para los artículos y para los
-   * comentarios, habría que ejectuar:
-   *
-   * await require("./articleSeeder")();
-   * await require("./commentSeeder")();
-   *
-   * IMPORTANTE: tener en cuenta que el orden en que se ejecutan los seeders
-   * suele ser clave. Por ejemplo, antes de crear artículos habría que
-   * crear los usuarios, ya que cada artículo debe tener un autor.
-   *
-   */
+  await require("./adminSeeder")();
+  await require("./clientSeeder")();
+  await require("./productSeeder")();
+  await require("./orderSeeder")();
 
   console.log("[Database] ¡Los datos de prueba fueron insertados!");
   process.exit();
