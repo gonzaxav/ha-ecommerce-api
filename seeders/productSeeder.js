@@ -14,6 +14,7 @@
  */
 
 const Product = require("../models/Product");
+const Category = require("../models/Category");
 
 module.exports = async () => {
   const products = [{
@@ -48,7 +49,11 @@ module.exports = async () => {
 
   const ProductsForDB = [];
   for (let product of products){
-    ProductsForDB.push(new Product(product));
+
+    let newProduct = product;
+    const productsCategory = await Category.findOne({ name: newProduct.category });
+    newProduct.category = productsCategory._id;
+    ProductsForDB.push(new Product(newProduct));
   }
 
   await Product.insertMany(ProductsForDB);

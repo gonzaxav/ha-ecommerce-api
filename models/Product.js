@@ -6,7 +6,7 @@ const productSchema = new Schema({
   photo: [String],
   price: String,
   stock: Number,
-  category: String,
+  category: { type: Schema.Types.ObjectId, ref: "Category" },
   featured: Boolean,
   slug: String,
 });
