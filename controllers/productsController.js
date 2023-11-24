@@ -21,7 +21,7 @@ const Product = require("../models/Product");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const products = await Product.find({ featured });
+  const products = await Product.find({ featured: true });
   console.log("hola");
   return res.json({ products });
 }
