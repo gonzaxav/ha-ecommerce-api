@@ -20,7 +20,7 @@ const Product = require("../models/Product");
 module.exports = async () => {
   const clientRico = await Client.findOne({ lastname: "Rico" });
   const product1 = await Product.findOne({ name: "Kopi Luwak" });
-  const product2 = await Product.findOne({ name: "Canasta para dia de la madre" });
+  const product2 = await Product.findOne({ name: "Bolistas" });
 
   const orders = [];
 

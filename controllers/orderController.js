@@ -1,8 +1,9 @@
 const Order = require("../models/Order");
 
+// Display a listing of the resource.
 async function index(req, res) {
-    const orders = await Order.find({client:req.auth.sub });
-  return res.json({orders });
+  const orders = await Order.find({ client: req.auth.sub });
+  return res.json({ orders });
 }
 
 // Display the specified resource.
@@ -12,7 +13,15 @@ async function show(req, res) {}
 async function create(req, res) {}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  const order = await Order.create({
+    client: req.auth.sub,
+    products: req.body.products,
+    orderstate: "pago pendiente",
+  });
+
+  return res.json(order);
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
