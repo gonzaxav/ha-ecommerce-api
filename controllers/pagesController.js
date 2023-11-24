@@ -1,3 +1,5 @@
+const Product = require("../models/Product");
+
 /**
  * Este archivo se utiliza en un proyecto donde se está utlizando server-side
  * rendering (ej: con un motor de templates como EJS). Tiene como objetivo
@@ -16,7 +18,10 @@
  * no debería existir.
  */
 
-async function showHome(req, res) {}
+async function showHome(req, res) {
+  const products = await Product.find({ featured: true });
+  return res.json({ products });
+}
 
 async function showContact(req, res) {}
 

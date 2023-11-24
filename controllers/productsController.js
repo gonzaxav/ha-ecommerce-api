@@ -1,3 +1,4 @@
+const { id } = require("date-fns/locale");
 const Product = require("../models/Product");
 /**
  * Este archivo se puede usar como referencia para crear el controlador de
@@ -20,14 +21,18 @@ const Product = require("../models/Product");
  */
 
 // Display a listing of the resource.
-async function index(req, res) {
-  const products = await Product.find({ featured: true });
-  console.log("hola");
-  return res.json({ products });
-}
+
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const product = await Product.findById(req.params.id);
+  return res.json({ product });
+}
+
+async function index(req, res) {
+  const products = await Product.find({category: req.params.categoria});
+  return res.json({ products });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}

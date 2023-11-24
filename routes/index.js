@@ -19,6 +19,8 @@
 
 const publicRoutes = require("./publicRoutes");
 const productRoutes = require("./productRoutes");
+const authRoutes = require("./authRoutes");
+const orderRoutes = require("./orderRoutes")
 // const privateRoutes = require("./privateRoutes");
 
 module.exports = (app) => {
@@ -30,7 +32,10 @@ module.exports = (app) => {
    */
 
   app.use("/productos", productRoutes);
+  app.use("/ordenes", orderRoutes);
   app.use("/", publicRoutes);
+  app.use("/", authRoutes)
+  
 };
 
 // PD: Recordar que es muy importante el orden en que se definen las rutas.
