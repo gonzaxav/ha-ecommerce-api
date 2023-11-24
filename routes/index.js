@@ -18,6 +18,7 @@
  */
 
 const publicRoutes = require("./publicRoutes");
+const productRoutes = require("./productRoutes");
 // const privateRoutes = require("./privateRoutes");
 
 module.exports = (app) => {
@@ -28,7 +29,7 @@ module.exports = (app) => {
    * en inglés.
    */
 
-  // app.use("/usuarios", userRoutes);
+  app.use("/productos", productRoutes);
   app.use("/", publicRoutes);
 };
 
