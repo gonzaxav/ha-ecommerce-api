@@ -17,43 +17,44 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 module.exports = async () => {
-  const products = [{
-    name: "Kopi Luwak",
-    description: "Coffee made from beans that have been digested by a civet cat",
-    photo: ["cafe.png"],
-    price: "800",
-    stock: 49,
-    category: "Cafe",
-    featured: true,
-    slug: "kopi-luwak",
-  },{
-    name: "Alfajores",
-    description: "Alfajores traidos de Francia",
-    photo: ["alfajores.png"],
-    price: "480",
-    stock: 67,
-    category: "Postre",
-    featured: true,
-    slug: "torta-frutilla",
-  },{
-    name: "Bolistas",
-    description:
-      "Es el producto ideal para ella!",
-    photo: ["bolistas.png"],
-    price: "400",
-    stock: 37,
-    category: "Merch",
-    featured: false,
-    slug: "bolistas-dia-madre",
-  }];
+  const products = [
+    {
+      name: "Kopi Luwak",
+      description: "Coffee made from beans that have been digested by a civet cat",
+      photo: ["cafe.png"],
+      price: "800",
+      stock: 49,
+      category: "Cafe",
+      featured: true,
+      slug: "kopi-luwak",
+    },
+    {
+      name: "Alfajores",
+      description: "Alfajores traidos de Francia",
+      photo: ["alfajores.png"],
+      price: "480",
+      stock: 67,
+      category: "Postre",
+      featured: true,
+      slug: "torta-frutilla",
+    },
+    {
+      name: "Bolistas",
+      description: "Es el producto ideal para ella!",
+      photo: ["bolistas.png"],
+      price: "400",
+      stock: 37,
+      category: "Merch",
+      featured: false,
+      slug: "bolistas-dia-madre",
+    },
+  ];
 
   const ProductsForDB = [];
-  for (let product of products){
-
-    let newProduct = product;
-    const productsCategory = await Category.findOne({ name: newProduct.category });
-    newProduct.category = productsCategory._id;
-    ProductsForDB.push(new Product(newProduct));
+  for (let product of products) {
+    const productsCategory = await Category.findOne({ name: product.category });
+    product.category = productsCategory._id;
+    ProductsForDB.push(new Product(product));
   }
 
   await Product.insertMany(ProductsForDB);
