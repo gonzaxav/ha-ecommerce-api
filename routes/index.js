@@ -35,7 +35,6 @@ module.exports = (app) => {
   app.use("/ordenes", orderRoutes);
   app.use("/", publicRoutes);
   app.use("/", authRoutes)
-  
 };
 
 // PD: Recordar que es muy importante el orden en que se definen las rutas.
