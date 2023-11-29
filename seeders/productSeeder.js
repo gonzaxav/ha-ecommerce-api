@@ -19,14 +19,14 @@ const Category = require("../models/Category");
 module.exports = async () => {
   const products = [
     {
-      name: "Kopi Luwak",
+      name: "Prensa Francesa",
       description: "Coffee made from beans that have been digested by a civet cat",
-      photo: ["cafe.png"],
+      photo: ["Prensa-francesa.jpg"],
       price: "800",
       stock: 49,
       category: "Cafe",
       featured: true,
-      slug: "kopi-luwak",
+      slug: "prensa-francesa",
     },
     {
       name: "Alfajores",
@@ -34,8 +34,8 @@ module.exports = async () => {
       photo: ["alfajores.png"],
       price: "480",
       stock: 67,
-      category: "Postre",
-      featured: true,
+      category: "Cafe",
+      featured: false,
       slug: "torta-frutilla",
     },
     {
@@ -47,6 +47,26 @@ module.exports = async () => {
       category: "Merch",
       featured: false,
       slug: "bolistas-dia-madre",
+    },
+    {
+      name: "Cafetera Italiana",
+      description: "El molinillo mas pillo",
+      photo: ["Cafetera-italiana.jpg"],
+      price: "400",
+      stock: 37,
+      category: "Cafe",
+      featured: true,
+      slug: "cafetera-italiana",
+    },
+    {
+      name: "Molinillo Electrico",
+      description: "El molinillo mas pillo",
+      photo: ["Molinillo-electronico.jpg"],
+      price: "400",
+      stock: 37,
+      category: "Cafe",
+      featured: true,
+      slug: "Molinillo",
     },
   ];
 
