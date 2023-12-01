@@ -15,6 +15,7 @@
 
 const Product = require("../models/Product");
 const Category = require("../models/Category");
+const slugify = require("slugify");
 
 module.exports = async () => {
   const products = [
@@ -26,7 +27,6 @@ module.exports = async () => {
       stock: 49,
       category: "Cafe",
       featured: true,
-      slug: "cafe-en-grano",
     },
     {
       name: "Alfajores",
@@ -36,7 +36,6 @@ module.exports = async () => {
       stock: 67,
       category: "Postre",
       featured: false,
-      slug: "alfajores",
     },
     {
       name: "Bolistas",
@@ -46,7 +45,6 @@ module.exports = async () => {
       stock: 37,
       category: "Merch",
       featured: false,
-      slug: "bolistas-dia-madre",
     },
     {
       name: "Cafetera Italiana",
@@ -56,7 +54,6 @@ module.exports = async () => {
       stock: 37,
       category: "Cafe",
       featured: true,
-      slug: "cafetera-italiana",
     },
     {
       name: "Jarra Termica",
@@ -66,7 +63,6 @@ module.exports = async () => {
       stock: 37,
       category: "Cafe",
       featured: true,
-      slug: "jarra-termica",
     },
     {
       name: "Vaso",
@@ -76,17 +72,15 @@ module.exports = async () => {
       stock: 37,
       category: "Cafe",
       featured: true,
-      slug: "vaso",
     },
   ];
 
-  const ProductsForDB = [];
-  for (let product of products) {
+  for (const product of products) {
+    const newProduct = new Product(product);
+    newProduct.slug = slugify(`${newProduct.name} ${newProduct._id}`, {lower: true, });
     const productsCategory = await Category.findOne({ name: product.category });
-    product.category = productsCategory._id;
-    ProductsForDB.push(new Product(product));
+    newProduct.category = productsCategory._id;
+    newProduct.save();
   }
-
-  await Product.insertMany(ProductsForDB);
   console.log("[Database] Se corrió el seeder de Products.");
 };
