@@ -17,7 +17,7 @@
  * una API esta alternativa no tendría sentido.
  */
 
-const publicRoutes = require("./publicRoutes");
+const categoryRoutes = require("./categoryRoutes");
 const productRoutes = require("./productRoutes");
 const authRoutes = require("./authRoutes");
 const orderRoutes = require("./orderRoutes")
@@ -33,7 +33,7 @@ module.exports = (app) => {
 
   app.use("/products", productRoutes);
   app.use("/orders", orderRoutes);
-  app.use("/", publicRoutes);
+  app.use("/category", categoryRoutes);
   app.use("/", authRoutes)
 };
 

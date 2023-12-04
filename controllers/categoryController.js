@@ -17,16 +17,16 @@ const Category = require("../models/Category");
  * En caso de estar creando una API, este controlador carece de sentido y
  * no debería existir.
  */
-
-async function showHome(req, res) {
-  const products = await Product.find({ featured: true });
-  return res.json({ products });
-}
-
-async function showCategories(req, res) {
+async function index(req, res) {
   const categories = await Category.find();
   return res.json({categories});
 }
+
+async function show(req, res) {
+  const category = await Category.findOne({slug: req.params.slug});
+  return res.json({category});
+}
+
 
 async function showAboutUs(req, res) {}
 
@@ -36,7 +36,7 @@ async function show404(req, res) {}
 // ...
 
 module.exports = {
-  showHome,
-  showCategories,
+  index,
+  show,
   showAboutUs,
 };
