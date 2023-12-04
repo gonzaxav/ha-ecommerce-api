@@ -63,7 +63,7 @@ module.exports = async () => {
       photo: ["vaso.png"],
       price: "50",
       stock: 37,
-      category: "Café",
+      category: "Merch",
       featured: true,
       shortDescription: "Vaso descartable biodegradable"
     },
