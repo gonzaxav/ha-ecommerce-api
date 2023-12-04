@@ -9,6 +9,7 @@ const productSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category" },
   featured: Boolean,
   slug: String,
+  shortDescription: String,
 });
 
 const Product = mongoose.model("Product", productSchema);

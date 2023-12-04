@@ -2,16 +2,19 @@ const { id } = require("date-fns/locale");
 const Product = require("../models/Product");
 const formidable = require("formidable");
 const slugify = require("slugify");
+const Category = require("../models/Category")
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const products = await Product.find({ category: req.params.categoria });
+  console.log(req.params);
+  const category = await Category.findOne({slug: req.params.slug});
+  const products = await Product.find({ category: category._id });
   return res.json({ products });
 }
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await Product.findOne(req.params.slug);
+  const product = await Product.findOne({slug: req.params.slug});
   return res.json({ product });
 }
 

@@ -31,8 +31,8 @@ module.exports = (app) => {
    * en inglés.
    */
 
-  app.use("/productos", productRoutes);
-  app.use("/ordenes", orderRoutes);
+  app.use("/products", productRoutes);
+  app.use("/orders", orderRoutes);
   app.use("/", publicRoutes);
   app.use("/", authRoutes)
 };

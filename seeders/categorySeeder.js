@@ -15,22 +15,44 @@
 
 const Category = require("../models/Category");
 const bcrypt = require("bcryptjs");
+const slugify = require("slugify");
 
 module.exports = async () => {
-
-  const categories = [{
-    name: "Cafe",
-    photo: "cafe.png",
-  },{
-    name: "Postre",
-    photo: "alfajores.png",
-  },{
-    name: "Merch",
-    photo: "bolistas.png",
-  }];
+  const categories = [
+    {
+      name: "Café",
+      photo: "cafe.png",
+      slug: slugify("Café",{ lower: true }),
+    },
+    {
+      name: "Carta",
+      photo: "alfajores.png",
+      slug: slugify("Carta",{ lower: true }),
+    },
+    {
+      name: "Merch",
+      photo: "bolistas.png",
+      slug: slugify("Merch",{ lower: true }),
+    },
+    {
+      name: "Bazar",
+      photo: "alfajores.png",
+      slug: slugify("Bazar",{ lower: true }),
+    },
+    {
+      name: "Máquinas",
+      photo: "alfajores.png",
+      slug: slugify("Máquinas",{ lower: true }),
+    },
+    {
+      name: "Kits de regalos",
+      photo: "alfajores.png",
+      slug: slugify("Kits de regalos",{ lower: true }),
+    },
+  ];
 
   const CategoriesForDB = [];
-  for (let category of categories){
+  for (let category of categories) {
     CategoriesForDB.push(new Category(category));
   }
 

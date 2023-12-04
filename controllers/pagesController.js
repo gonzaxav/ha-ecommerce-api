@@ -1,5 +1,5 @@
 const Product = require("../models/Product");
-
+const Category = require("../models/Category");
 /**
  * Este archivo se utiliza en un proyecto donde se está utlizando server-side
  * rendering (ej: con un motor de templates como EJS). Tiene como objetivo
@@ -23,7 +23,10 @@ async function showHome(req, res) {
   return res.json({ products });
 }
 
-async function showContact(req, res) {}
+async function showCategories(req, res) {
+  const categories = await Category.find();
+  return res.json({categories});
+}
 
 async function showAboutUs(req, res) {}
 
@@ -34,6 +37,6 @@ async function show404(req, res) {}
 
 module.exports = {
   showHome,
-  showContact,
+  showCategories,
   showAboutUs,
 };
