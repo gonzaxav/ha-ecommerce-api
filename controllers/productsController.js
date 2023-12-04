@@ -8,7 +8,7 @@ const Category = require("../models/Category")
 async function index(req, res) {
   const category = await Category.findOne({slug: req.params.slug});
   const products = await Product.find({ category: category._id });
-  return res.json({ products });
+  return res.json({ products, category });
 }
 
 // Display the specified resource.
