@@ -20,7 +20,8 @@
 const categoryRoutes = require("./categoryRoutes");
 const productRoutes = require("./productRoutes");
 const authRoutes = require("./authRoutes");
-const orderRoutes = require("./orderRoutes")
+const orderRoutes = require("./orderRoutes");
+const clientRoutes = require("./clientRoutes");
 // const privateRoutes = require("./privateRoutes");
 
 module.exports = (app) => {
@@ -34,7 +35,8 @@ module.exports = (app) => {
   app.use("/products", productRoutes);
   app.use("/orders", orderRoutes);
   app.use("/category", categoryRoutes);
-  app.use("/", authRoutes)
+  app.use("/client", clientRoutes);
+  app.use("/", authRoutes);
 };
 
 // PD: Recordar que es muy importante el orden en que se definen las rutas.

@@ -7,7 +7,7 @@ router.get("/", productsController.index);
  router.get("/:slug", productsController.show);
  router.post("/", productsController.store);
 // router.get("/editar/:id", userController.edit);
-// router.patch("/:id", userController.update);
+ router.patch("/:slug", productsController.update);
 // router.delete("/:id", userController.destroy);
 
 module.exports = router;
