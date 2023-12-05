@@ -12,11 +12,10 @@ const clientSchema = new Schema({
 
 clientSchema.methods.toJSON = function () {
   const client = this.toObject();
-  delete client.password; 
+  delete client.password;
   return client;
 };
 
 const Client = mongoose.model("Client", clientSchema);
-
 
 module.exports = Client;
