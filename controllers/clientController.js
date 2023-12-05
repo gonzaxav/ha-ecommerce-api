@@ -1,16 +1,17 @@
 const Client = require("../models/Client");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 // Display a listing of the resource.
 async function index(req, res) {
   const clients = await Client.find();
-  return res.json({clients});
+  return res.json({ clients });
 }
 
 // Display the specified resource.
 async function show(req, res) {
   const client = await Client.findById(req.params.id);
-  return res.json({client});
+  return res.json({ client });
 }
 
 // Store a newly created resource in storage.
@@ -29,14 +30,22 @@ async function store(req, res) {
       phone: req.body.phone,
       orders: [],
     });
-    return res.json({ newClient });
+
+    const client = await Client.findOne({ email: req.body.email });
+    if (!client) return res.json({ msg: "Wrong Credentials" });
+
+    const verifyPassword = await bcrypt.compare(req.body.password, client.password);
+    if (!verifyPassword) return res.json({ msg: "Wrong Credentials" });
+
+    const token = jwt.sign({ sub: client._id }, process.env.JWT_SECRET);
+
+    return res.json({ newClient, token: token });
   }
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {
   const client = Client.findById(req.auth.sub);
-  
 }
 
 // Remove the specified resource from storage.
