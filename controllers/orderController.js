@@ -2,7 +2,7 @@ const Order = require("../models/Order");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const orders = await Order.find({ client: req.auth.sub });
+  const orders = await Order.find();
   return res.json({ orders });
 }
 

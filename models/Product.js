@@ -10,6 +10,7 @@ const productSchema = new Schema({
   featured: Boolean,
   slug: String,
   shortDescription: String,
+  isActive: Boolean,
 });
 
 const Product = mongoose.model("Product", productSchema);

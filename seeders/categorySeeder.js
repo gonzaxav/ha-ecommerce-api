@@ -23,31 +23,37 @@ module.exports = async () => {
       name: "Café",
       photo: "cafe.png",
       slug: slugify("Café",{ lower: true }),
+      isActive: true,
     },
     {
       name: "Carta",
       photo: "alfajores.png",
       slug: slugify("Carta",{ lower: true }),
+      isActive: true,
     },
     {
       name: "Merch",
       photo: "bolistas.png",
       slug: slugify("Merch",{ lower: true }),
+      isActive: true,
     },
     {
       name: "Bazar",
       photo: "alfajores.png",
       slug: slugify("Bazar",{ lower: true }),
+      isActive: true,
     },
     {
       name: "Máquinas",
       photo: "alfajores.png",
       slug: slugify("Máquinas",{ lower: true }),
+      isActive: true,
     },
     {
       name: "Kits de regalos",
       photo: "alfajores.png",
       slug: slugify("Kits de regalos",{ lower: true }),
+      isActive: true,
     },
   ];
 

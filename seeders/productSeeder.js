@@ -21,23 +21,27 @@ module.exports = async () => {
   const products = [
     {
       name: "Café de la Casa",
-      description: " Éste café es dulce, de acidez baja, con aromas a frutos rojos y amarillos, que nos hace viajar hasta las montañas de Minas Gerais donde es producido. Notas: Frutal, caramelo, dulce.",
+      description:
+        " Éste café es dulce, de acidez baja, con aromas a frutos rojos y amarillos, que nos hace viajar hasta las montañas de Minas Gerais donde es producido. Notas: Frutal, caramelo, dulce.",
       photo: ["cafe-en-grano.png"],
       price: "630",
       stock: 49,
       category: "Café",
       featured: true,
       shortDescription: "Café en grano / 250g",
+      isActive: true,
     },
-    // {
-    //   name: "Bolistas",
-    //   description: "Es el producto ideal para ella!",
-    //   photo: ["bolistas.png"],
-    //   price: "400",
-    //   stock: 37,
-    //   category: "Merch",
-    //   featured: false,
-    // },
+    {
+      name: "Bolistas",
+      description: "Es el producto ideal para ella!",
+      photo: ["bolistas.png"],
+      price: "400",
+      stock: 37,
+      category: "Merch",
+      featured: false,
+      shortDescription: "bolistas",
+      isActive: false,
+    },
     // {
     //   name: "Cafetera Italiana",
     //   description: "Cafeteria de mejor calidad",
@@ -49,13 +53,15 @@ module.exports = async () => {
     // },
     {
       name: "vaso Térmico",
-      description: "Material: acero inoxidable. Incluye tapa. Cuenta con doble pared de aislamiento. Es libre de BPA. Es apto para lavavajillas. Conserva tus bebidas a una temperatura ideal.",
+      description:
+        "Material: acero inoxidable. Incluye tapa. Cuenta con doble pared de aislamiento. Es libre de BPA. Es apto para lavavajillas. Conserva tus bebidas a una temperatura ideal.",
       photo: ["jarra-termica.png"],
       price: "900",
       stock: 37,
       category: "Merch",
-      featured: true,
-      shortDescription: "Vaso térmico con doble pared de aislamiento"
+      featured: false,
+      shortDescription: "Vaso térmico con doble pared de aislamiento",
+      isActive: true,
     },
     {
       name: "Vaso",
@@ -64,8 +70,9 @@ module.exports = async () => {
       price: "50",
       stock: 37,
       category: "Merch",
-      featured: true,
-      shortDescription: "Vaso descartable biodegradable"
+      featured: false,
+      shortDescription: "Vaso descartable biodegradable",
+      isActive: true,
     },
     {
       name: "Brasil Crucera",
@@ -77,6 +84,7 @@ module.exports = async () => {
       category: "Café",
       featured: true,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Guatemala GTA",
@@ -88,6 +96,7 @@ module.exports = async () => {
       category: "Café",
       featured: true,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Etiopía Sasé",
@@ -99,6 +108,7 @@ module.exports = async () => {
       category: "Café",
       featured: false,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Colombia CDO",
@@ -110,6 +120,7 @@ module.exports = async () => {
       category: "Café",
       featured: false,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Alma Negra",
@@ -121,6 +132,7 @@ module.exports = async () => {
       category: "Café",
       featured: false,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Siko",
@@ -132,6 +144,7 @@ module.exports = async () => {
       category: "Café",
       featured: true,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Marysabel",
@@ -143,6 +156,7 @@ module.exports = async () => {
       category: "Café",
       featured: false,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
     {
       name: "Kirorero",
@@ -154,6 +168,7 @@ module.exports = async () => {
       category: "Café",
       featured: true,
       shortDescription: "Café molido / 250g",
+      isActive: true,
     },
   ];
 

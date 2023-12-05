@@ -6,7 +6,7 @@ const Category = require("../models/Category");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const filterCriteria = {};
+  const filterCriteria = {isActive: true};
   if (req.query.slug) {
     const category = await Category.findOne({ slug: req.query.slug });
     filterCriteria.category = category._id;
@@ -14,13 +14,16 @@ async function index(req, res) {
   if (req.query.featured) {
     filterCriteria.featured = true;
   }
+  if (req.query.includeInactive) {
+    delete filterCriteria.isActive 
+  }  
   const products = await Product.find(filterCriteria);
   return res.json({ products });
 }
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await Product.findOne({ slug: req.params.slug });
+  const product = await Product.findOne({ slug: req.params.slug, isActive: true });
   return res.json({ product });
 }
 
@@ -42,6 +45,7 @@ async function store(req, res) {
       category: fields.category,
       featured: fields.featured,
       photo: files.photo.newFilename,
+      isActive: true,
     });
     newProduct.slug = newProduct.slug = slugify(`${newProduct.name} ${newProduct._id}`);
     newProduct.save();
@@ -70,6 +74,7 @@ async function update(req, res) {
       category: fields.category,
       featured: fields.featured,
       photo: files.photo.newFilename,
+
     };
     update.slug = slugify(`${fields.name} ${product._id}`);
     const updatedProduct = await Product.findOneAndUpdate({ slug: req.params.slug }, updated, {new: true});
@@ -78,7 +83,16 @@ async function update(req, res) {
 }
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const product = await Product.findOne({slug: req.params.slug});
+  product.isActive = !product.isActive;
+  product.save();
+  if(product.isActive){
+    return res.json({msg: "El producto se habilitó correctamente"});
+  } else {
+    return res.json({msg: "El producto se deshabilitó correctamente"});
+  }
+}
 
 // Otros handlers...
 // ...

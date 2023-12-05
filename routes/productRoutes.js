@@ -8,6 +8,6 @@ router.get("/", productsController.index);
  router.post("/", productsController.store);
 // router.get("/editar/:id", userController.edit);
  router.patch("/:slug", productsController.update);
-// router.delete("/:id", userController.destroy);
+ router.delete("/:slug", productsController.destroy);
 
 module.exports = router;

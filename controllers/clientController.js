@@ -39,7 +39,7 @@ async function store(req, res) {
 
     const token = jwt.sign({ sub: client._id }, process.env.JWT_SECRET);
 
-    return res.json({ newClient, token: token });
+    return res.json({ token });
   }
 }
 
