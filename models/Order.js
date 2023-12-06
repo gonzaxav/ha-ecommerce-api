@@ -4,7 +4,7 @@ const orderStateEnum = ["pago pendiente", "rechazado", "pago", "en tránsito", "
 
 const orderSchema = new Schema({
   client: { type: Schema.Types.ObjectId, ref: "Client" },
-  products: [{ productId: String, product: String, price: Number, qty: Number }],
+  products: [{ productId: String, name: String, photo: String, price: Number, qty: Number, slug: String, stock: Number }],
   orderstate: {
     type: String,
     enum: orderStateEnum,

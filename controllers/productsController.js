@@ -55,7 +55,7 @@ async function store(req, res) {
 }
 
 // Update the specified resource in storage.
-async function update(req, res) {
+async function update(req, res) { //manejar update de stock al confirmar la orden, ej. mandar ?stock=true por query y hacer condicional para el update
   const product = await Product.findOne({ slug: req.params.slug });
   const form = formidable({
     multiples: true,
