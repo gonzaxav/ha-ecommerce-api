@@ -47,7 +47,7 @@ async function store(req, res) {
       photo: files.photo.newFilename,
       isActive: true,
     });
-    newProduct.slug = newProduct.slug = slugify(`${newProduct.name} ${newProduct._id}`);
+    newProduct.slug = slugify(`${newProduct.name} ${newProduct._id}`);
     newProduct.save();
 
     return res.json(newProduct);
