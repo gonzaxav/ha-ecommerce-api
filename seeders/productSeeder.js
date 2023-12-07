@@ -173,7 +173,7 @@ module.exports = async () => {
     {
       name: "Balanza digital",
       description: "Peso mínimo: 5g - Peso máximo: 3kg, con recipiente encastrable",
-      photo: "balanza.png",
+      photo: "balanza-2.png",
       price: "1800",
       stock: 3,
       category: "Bazar",
@@ -221,7 +221,7 @@ module.exports = async () => {
       name: "Prensa Francesa",
       description:
         "Diseño clásico, cuerpo de vidrio y armazón en acero inoxidable, 1 Litro. Resistente al calor, no alterará o reducirá el sabor natural del café.Más respetuoso con el medio ambiente que muchos otros métodos de preparación, sin necesidad de filtros de papel o cápsulas de plástico",
-      photo: "Prensa-Francesa.png",
+      photo: "Prensa-francesa-bazar.png",
       price: "4600",
       stock: 5,
       category: "Bazar",
@@ -233,7 +233,7 @@ module.exports = async () => {
       name: "Cafetera Italiana",
       description:
         "Rinde 6 tazas, nos brinda aprox 270ml de café y se adapta a cualquier cocina excepto inducción. Uso directo en hornalla. Hecha de aluminio",
-      photo: "Cafetera-Italiana-CA.png",
+      photo: "Cafetera-Italiana.png",
       price: "3100",
       stock: 7,
       category: "Bazar",
@@ -260,7 +260,7 @@ module.exports = async () => {
       photo: "molinillo-electrico.png",
       price: "8500",
       stock: 8,
-      category: "Bazar",
+      category: "Máquinas",
       featured: false,
       shortDescription: "Molinillo eléctrico, 200g",
       isActive: true,
@@ -269,7 +269,7 @@ module.exports = async () => {
       name: "Máquina profesional",
       description:
         "Máquina de espresso profesional, 2 grupos. Programación automática del agua caliente y botón automático de una sola pulsación. 2 salidas de vapor de gran potencia, que permiten calentar líquidos en su propio recipiente.",
-      photo: "Maquina profesional.jpg",
+      photo: "Profesional.png",
       price: "5600",
       stock: 8,
       category: "Máquinas",
@@ -279,8 +279,7 @@ module.exports = async () => {
     },
     {
       name: "Jugos naturales",
-      description:
-        "Jugos hechos en el momento con frutas frescas y de temporada.",
+      description: "Jugos hechos en el momento con frutas frescas y de temporada.",
       photo: "zumos_naturales.png",
       price: "180",
       stock: 2,
@@ -291,8 +290,7 @@ module.exports = async () => {
     },
     {
       name: "Yogurt griego",
-      description:
-        "Con granola casera de semillas y frutos secos, miel y fruta fresca.",
+      description: "Con granola casera de semillas y frutos secos, miel y fruta fresca.",
       photo: "yogurt_griego_magnifico.png",
       price: "260",
       stock: 2,
@@ -303,8 +301,7 @@ module.exports = async () => {
     },
     {
       name: "Tostada de mermelada",
-      description:
-        "Tostada con mantequilla y mermelada de frambuesa",
+      description: "Tostada con mantequilla y mermelada de frambuesa",
       photo: "tostada-de-mermelada.png",
       price: "160",
       stock: 20,
@@ -315,8 +312,7 @@ module.exports = async () => {
     },
     {
       name: "Tostada de chocolate",
-      description:
-        "Tostada con Chocolate, frambuesa y pistachos",
+      description: "Tostada con Chocolate, frambuesa y pistachos",
       photo: "tostada-de-mermelada.png",
       price: "210",
       stock: 20,
@@ -339,8 +335,7 @@ module.exports = async () => {
     },
     {
       name: "Tostada de aguacate",
-      description:
-        "Aguacate, tomates confitados y semillas",
+      description: "Aguacate, tomates confitados y semillas",
       photo: "tostada-de-aguacate.png",
       price: "260",
       stock: 20,
@@ -371,6 +366,54 @@ module.exports = async () => {
       category: "Carta",
       featured: false,
       shortDescription: "Vegetales y yogurt griego",
+      isActive: true,
+    },
+    {
+      name: "Bolsas",
+      description:
+        "Las bolsas ecológicas más lindas y prácticas. Hechas de tela resistente y livianas. Llevalas contigo a todos lados, será tu aliada perfecta.",
+      photo: "bolsitas-ca.png",
+      price: "430",
+      stock: 25,
+      category: "Merch",
+      featured: false,
+      shortDescription: "Bolsas ecológicas",
+      isActive: true,
+    },
+    {
+      name: "Vasos descartables Casa de abajo",
+      description:
+        "Vasos de papel, biodegradables y reutilizables. Diseños de Casa de abajo. Pack x 10 unidades.",
+      photo: "vasos-descartables-ca.png",
+      price: "200",
+      stock: 15,
+      category: "Merch",
+      featured: false,
+      shortDescription: "Vasos de papel x 10 unidades",
+      isActive: true,
+    },
+    {
+      name: "Stickers",
+      description:
+        "Pack de stickers Casa de abajo x 8 unidades.",
+      photo: "stikers.png",
+      price: "130",
+      stock: 50,
+      category: "Merch",
+      featured: false,
+      shortDescription: "Pack de stickers CA",
+      isActive: true,
+    },
+    {
+      name: "Molinillo eléctrico",
+      description:
+        "Molinillo profesional de café. Regulación micrométrica continua patentada.  Diseño de muelas especiales diseñado para lograr un rendimiento óptimo con cualquier tipo de modo de molienda deseado.",
+      photo: "molinillo-electrico-2.png",
+      price: "30.200",
+      stock: 10,
+      category: "Máquinas",
+      featured: false,
+      shortDescription: "Molinillo profesional de café.",
       isActive: true,
     },
   ];
