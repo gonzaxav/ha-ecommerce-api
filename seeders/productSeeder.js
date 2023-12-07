@@ -277,6 +277,102 @@ module.exports = async () => {
       shortDescription: "Máquina de espresso profesional",
       isActive: true,
     },
+    {
+      name: "Jugos naturales",
+      description:
+        "Jugos hechos en el momento con frutas frescas y de temporada.",
+      photo: "zumos_naturales.png",
+      price: "180",
+      stock: 2,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Jugos natrurales",
+      isActive: true,
+    },
+    {
+      name: "Yogurt griego",
+      description:
+        "Con granola casera de semillas y frutos secos, miel y fruta fresca.",
+      photo: "yogurt_griego_magnifico.png",
+      price: "260",
+      stock: 2,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Yogurt griego con granola",
+      isActive: true,
+    },
+    {
+      name: "Tostada de mermelada",
+      description:
+        "Tostada con mantequilla y mermelada de frambuesa",
+      photo: "tostada-de-mermelada.png",
+      price: "160",
+      stock: 20,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Mantequilla y mermelada",
+      isActive: true,
+    },
+    {
+      name: "Tostada de chocolate",
+      description:
+        "Tostada con Chocolate, frambuesa y pistachos",
+      photo: "tostada-de-mermelada.png",
+      price: "210",
+      stock: 20,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Chocolate",
+      isActive: true,
+    },
+    {
+      name: "Pancakes Galantes",
+      description:
+        "De semillas de amapola, servidos con yogurt griego y fruta de temporada (Opción de Sirope o Nutella)",
+      photo: "pancakes_galantes.png",
+      price: "380",
+      stock: 10,
+      category: "Carta",
+      featured: false,
+      shortDescription: "servidos con yogurt griego",
+      isActive: true,
+    },
+    {
+      name: "Tostada de aguacate",
+      description:
+        "Aguacate, tomates confitados y semillas",
+      photo: "tostada-de-aguacate.png",
+      price: "260",
+      stock: 20,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Aguacate y tomate confitado",
+      isActive: true,
+    },
+    {
+      name: "Vegan",
+      description:
+        "Pan chapata, tomate seco, hummus de albahaca, cebolla encurtida, pimientos asados y hojas verdes.",
+      photo: "vegan.png",
+      price: "380",
+      stock: 5,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Pan chapata y vegetales",
+      isActive: true,
+    },
+    {
+      name: "Cacerola de huevos",
+      description:
+        "Con sofrito de pimiento, espinacas, yogurt griego y aceite de hierbas, servidos con pan pages. Todos los huevos son a baja temperatura.",
+      photo: "cacerola_de_huevos.png",
+      price: "410",
+      stock: 5,
+      category: "Carta",
+      featured: false,
+      shortDescription: "Vegetales y yogurt griego",
+      isActive: true,
+    },
   ];
 
   for (const product of products) {
