@@ -2,12 +2,15 @@ const Order = require("../models/Order");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const orders = await Order.find();
+  const orders = await Order.find().populate("client");
   return res.json({ orders });
 }
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const order = await Order.findById(req.params.id).populate("client");
+  return res.json({ order });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -27,7 +30,10 @@ async function store(req, res) {
 async function edit(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  await Order.findByIdAndUpdate(req.params.id, req.body);
+  return res.json({ msg: "listo" });
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {}

@@ -11,11 +11,11 @@ const { expressjwt: checkJwt } = require("express-jwt");
 // router.use(checkToken);
 
 router.get("/", orderController.index);
-// router.get("/crear", userController.create);
-//router.get("/:id", productsController.show);
-// router.post("/", userController.store);
-// router.get("/editar/:id", userController.edit);
-// router.patch("/:id", userController.update);
-// router.delete("/:id", userController.destroy);
+// router.get("/crear", orderController.create);
+router.get("/:id", orderController.show);
+router.post("/", orderController.store);
+// router.get("/editar/:id", orderController.edit);
+router.patch("/:id", orderController.update);
+// router.delete("/:id", orderController.destroy);
 
 module.exports = router;

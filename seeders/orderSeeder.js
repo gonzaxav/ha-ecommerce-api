@@ -28,14 +28,16 @@ module.exports = async () => {
     client: clientRico._id,
     products: [
       { productId: product1._id, 
-        product: product1.name, 
+        name: product1.name, 
         price: product1.price, 
-        qty: 2 
+        qty: 2,
+        slug: product1.slug,
       },
       { productId: product2._id, 
-        product: product2.name, 
+        name: product2.name, 
         price: product2.price, 
-        qty: 1 
+        qty: 1,
+        slug: product2.slug,
       }],
     orderstate: "entregado",
   });

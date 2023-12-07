@@ -1,4 +1,5 @@
 const Admin = require("../models/Admin");
+const bcrypt = require("bcryptjs");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -7,7 +8,10 @@ async function index(req, res) {
 }
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const admin = await Admin.findById(req.params.id);
+  return res.json({ admin });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -33,10 +37,22 @@ async function store(req, res) {
 async function edit(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  await Admin.findByIdAndUpdate(req.params.id, req.body);
+  return res.json({ msg: "listo" });
+}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const admins = await Admin.find();
+  if (admins.length > 1){
+    const admin = await Admin.findByIdAndDelete(req.params.id);
+    return res.json({ msg: "eliminado" });
+  }
+  else {
+    return res.json({ msg: "no se puede eliminar al ultimo admin" });
+  }
+}
 
 // Otros handlers...
 // ...

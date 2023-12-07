@@ -14,16 +14,16 @@ async function index(req, res) {
   if (req.query.featured) {
     filterCriteria.featured = true;
   }
-  if (req.query.includeInactive) {
-    delete filterCriteria.isActive 
-  }  
-  const products = await Product.find(filterCriteria);
+  if (req.query.includeinactive) {
+    delete filterCriteria.isActive
+  } 
+  const products = await Product.find(filterCriteria).populate("category");
   return res.json({ products });
 }
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await Product.findOne({ slug: req.params.slug, isActive: true });
+  const product = await Product.findOne({ slug: req.params.slug }).populate("category");
   return res.json({ product });
 }
 
