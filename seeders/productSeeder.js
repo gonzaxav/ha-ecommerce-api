@@ -416,6 +416,18 @@ module.exports = async () => {
       shortDescription: "Molinillo profesional de café.",
       isActive: true,
     },
+    {
+      name: "Kit de regalo",
+      description:
+        "Kit de regalo",
+      photo: "Kit-regalo-1.png",
+      price: "1600",
+      stock: 10,
+      category: "Kits de regalos",
+      featured: false,
+      shortDescription: "Kit de regalo",
+      isActive: true,
+    },
   ];
 
   for (const product of products) {
