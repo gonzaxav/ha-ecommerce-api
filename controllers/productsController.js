@@ -43,7 +43,8 @@ async function store(req, res) {
       price: fields.price,
       stock: fields.stock,
       category: fields.category,
-      featured: fields.featured,
+      featured: fields.featured === "true" ? true : false,
+      shortDescription: fields.shortDescription,
       photo: files.photo.newFilename,
       isActive: true,
     });
@@ -72,7 +73,8 @@ async function update(req, res) { //manejar update de stock al confirmar la orde
       price: fields.price,
       stock: fields.stock,
       category: fields.category,
-      featured: fields.featured,
+      featured: fields.featured === "true" ? true : false,
+      shortDescription: fields.shortDescription,
       photo: files.photo.newFilename,
 
     };

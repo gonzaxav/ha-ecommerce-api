@@ -6,7 +6,7 @@ const slugify = require("slugify");
 
 async function index(req, res) {
   const filterCriteria = { isActive: true };
-  if (req.query.includeInactive) {
+  if (req.query.includeinactive) {
     delete filterCriteria.isActive;
   }
   const categories = await Category.find(filterCriteria);
