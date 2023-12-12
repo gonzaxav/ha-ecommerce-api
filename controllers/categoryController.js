@@ -1,8 +1,10 @@
 const Product = require("../models/Product");
 const Category = require("../models/Category");
-
 const formidable = require("formidable");
 const slugify = require("slugify");
+const {createClient} = require("@supabase/supabase-js");
+const fs = require("fs");
+const path = require("path");
 
 async function index(req, res) {
   const filterCriteria = { isActive: true };
@@ -19,17 +21,34 @@ async function show(req, res) {
 }
 
 async function store(req, res) {
+
+  const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_KEY
+  );
+  
   const form = formidable({
     multiples: true,
-    uploadDir: __dirname + "/../public/img",
     keepExtensions: true,
   });
 
   form.parse(req, async (err, fields, files) => {
+    const ext = path.extname(files.photo.filepath);
+    const newFileName = `image_${Date.now()}${ext}`;
     if (err) return res.json(err);
+
+    const { data, error } = await supabase.storage
+    .from("img")
+    .upload(newFileName, fs.createReadStream(files.photo.filepath), {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: files.photo.mimetype,
+      duplex: "half",
+    });
+
     const newCategory = new Category({
       name: fields.name,
-      photo: files.photo.newFilename,
+      photo: newFileName,
       isActive: true,
       slug: slugify(`${fields.name}`, { lower: true }),
     });

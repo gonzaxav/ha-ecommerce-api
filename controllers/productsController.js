@@ -3,6 +3,9 @@ const Product = require("../models/Product");
 const formidable = require("formidable");
 const slugify = require("slugify");
 const Category = require("../models/Category");
+const {createClient} = require("@supabase/supabase-js");
+const fs = require("fs");
+const path = require("path");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -29,13 +32,28 @@ async function show(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
+  const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_KEY
+  );
   const form = formidable({
     multiples: true,
-    uploadDir: __dirname + "/../public/img",
     keepExtensions: true,
   });
 
   form.parse(req, async (err, fields, files) => {
+    const ext = path.extname(files.photo.filepath);
+    const newFileName = `image_${Date.now()}${ext}`;
+    
+    const { data, error } = await supabase.storage
+    .from("img")
+    .upload(newFileName, fs.createReadStream(files.photo.filepath), {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: files.photo.mimetype,
+      duplex: "half",
+    });
+
     if (err) return res.json(err);
     const newProduct = new Product({
       name: fields.name,
@@ -45,7 +63,7 @@ async function store(req, res) {
       category: fields.category,
       featured: fields.featured === "true" ? true : false,
       shortDescription: fields.shortDescription,
-      photo: files.photo.newFilename,
+      photo: newFileName,
       isActive: true,
     });
     newProduct.slug = slugify(`${newProduct.name} ${newProduct._id}`);
