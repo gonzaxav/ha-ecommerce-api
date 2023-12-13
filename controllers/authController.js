@@ -12,7 +12,7 @@ async function newToken(req, res) {
 
   const token = jwt.sign({ sub: client._id }, process.env.JWT_SECRET);
 
-  return res.json({ token });
+  return res.json({ token, client });
 }
 
 async function adminToken(req, res) {
