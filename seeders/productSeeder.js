@@ -313,7 +313,7 @@ module.exports = async () => {
     {
       name: "Tostada de chocolate",
       description: "Tostada con Chocolate, frambuesa y pistachos",
-      photo: "tostada-de-mermelada.png",
+      photo: "tostada_de_chocolate.png",
       price: "210",
       stock: 20,
       category: "Carta",
@@ -394,8 +394,7 @@ module.exports = async () => {
     },
     {
       name: "Stickers",
-      description:
-        "Pack de stickers Casa de abajo x 8 unidades.",
+      description: "Pack de stickers Casa de abajo x 8 unidades.",
       photo: "stikers.png",
       price: "130",
       stock: 50,
@@ -418,8 +417,7 @@ module.exports = async () => {
     },
     {
       name: "Kit de regalo",
-      description:
-        "Kit de regalo",
+      description: "Kit de regalo",
       photo: "Kit-regalo-1.png",
       price: "1600",
       stock: 10,
@@ -430,8 +428,7 @@ module.exports = async () => {
     },
     {
       name: "Kit de regalo",
-      description:
-        "Kit de regalo",
+      description: "Kit de regalo",
       photo: "Kits_1.png",
       price: "2000",
       stock: 15,
