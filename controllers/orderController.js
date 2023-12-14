@@ -2,8 +2,28 @@ const Order = require("../models/Order");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const orders = await Order.find().populate("client");
-  return res.json({ orders });
+  try {
+    const searchTerm = req.query.buscar;
+    
+    let filter = {};
+    if (searchTerm && searchTerm !== "") {
+      const regex = new RegExp(searchTerm, 'i');
+      if (searchTerm.match(/^[0-9a-fA-F]{24}$/)) {
+        filter.$or = [
+          { _id: searchTerm },
+          { client: searchTerm },
+        ];
+      } else {
+        filter.$or = [
+          { orderstate: regex },
+        ];
+      }
+    }
+    const orders = await Order.find(filter).populate("client");
+    return res.json({ orders });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
 
 // Display the specified resource.

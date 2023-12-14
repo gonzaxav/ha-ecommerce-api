@@ -11,6 +11,22 @@ async function index(req, res) {
   if (req.query.includeinactive) {
     delete filterCriteria.isActive;
   }
+  if (req.query.buscar){
+    const searchTerm = req.query.buscar;
+    
+    if (searchTerm && searchTerm !== "") {
+      const regex = new RegExp(searchTerm, 'i');
+      if (searchTerm.match(/^[0-9a-fA-F]{24}$/)) {
+        filterCriteria.$or = [
+          { _id: searchTerm },
+        ];
+      } else {
+        filterCriteria.$or = [
+          { name: regex },
+        ];
+      }
+    }
+  }
   const categories = await Category.find(filterCriteria);
   return res.json({ categories });
 }
