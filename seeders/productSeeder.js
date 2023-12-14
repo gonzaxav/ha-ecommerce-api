@@ -178,7 +178,7 @@ module.exports = async () => {
       stock: 3,
       category: "Bazar",
       featured: false,
-      shortDescription: "Peso máximo: 3kg",
+      shortDescription: "Balanza digital, 3kg",
       isActive: true,
     },
     {
@@ -190,7 +190,7 @@ module.exports = async () => {
       stock: 20,
       category: "Bazar",
       featured: false,
-      shortDescription: "Rinde de 8 a 12 tazas.",
+      shortDescription: "Filtros Reutilizables.",
       isActive: true,
     },
     {
@@ -202,7 +202,7 @@ module.exports = async () => {
       stock: 30,
       category: "Bazar",
       featured: false,
-      shortDescription: "Número de piezas: 200",
+      shortDescription: "Filtros Descartables, 200 piezas",
       isActive: true,
     },
     {
@@ -214,7 +214,7 @@ module.exports = async () => {
       stock: 6,
       category: "Bazar",
       featured: false,
-      shortDescription: "Fresa de acero inoxidable.",
+      shortDescription: "Molinillo con función de ajuste .",
       isActive: true,
     },
     {
@@ -226,7 +226,7 @@ module.exports = async () => {
       stock: 5,
       category: "Bazar",
       featured: false,
-      shortDescription: "Diseño clásico, 1 Litro.",
+      shortDescription: "Prensa Francesa, 1 Litro.",
       isActive: true,
     },
     {
@@ -238,7 +238,7 @@ module.exports = async () => {
       stock: 7,
       category: "Bazar",
       featured: false,
-      shortDescription: "Rinde 6 tazas, aluminio",
+      shortDescription: "Cafetera Italiana, aluminio",
       isActive: true,
     },
     {
@@ -285,7 +285,7 @@ module.exports = async () => {
       stock: 2,
       category: "Carta",
       featured: false,
-      shortDescription: "Jugos natrurales",
+      shortDescription: "Jugos naturales",
       isActive: true,
     },
     {
@@ -307,7 +307,7 @@ module.exports = async () => {
       stock: 20,
       category: "Carta",
       featured: false,
-      shortDescription: "Mantequilla y mermelada",
+      shortDescription: "Tostada de mermelada",
       isActive: true,
     },
     {
@@ -318,7 +318,7 @@ module.exports = async () => {
       stock: 20,
       category: "Carta",
       featured: false,
-      shortDescription: "Chocolate",
+      shortDescription: "Tostada con Chocolate",
       isActive: true,
     },
     {
@@ -330,7 +330,7 @@ module.exports = async () => {
       stock: 10,
       category: "Carta",
       featured: false,
-      shortDescription: "servidos con yogurt griego",
+      shortDescription: "Pancakes con yogurt griego",
       isActive: true,
     },
     {
@@ -341,7 +341,7 @@ module.exports = async () => {
       stock: 20,
       category: "Carta",
       featured: false,
-      shortDescription: "Aguacate y tomate confitado",
+      shortDescription: "Tostada de aguacate",
       isActive: true,
     },
     {
