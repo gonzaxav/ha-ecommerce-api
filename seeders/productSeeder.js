@@ -429,7 +429,7 @@ module.exports = async () => {
     {
       name: "Kit de regalo",
       description: "Kit de regalo",
-      photo: "Kits_1.png",
+      photo: "kits_1.png",
       price: "2000",
       stock: 15,
       category: "Kits de regalos",
