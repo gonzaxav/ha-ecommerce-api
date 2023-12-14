@@ -3,8 +3,27 @@ const bcrypt = require("bcryptjs");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const admins = await Admin.find();
-  return res.json({ admins });
+  try {
+    const searchTerm = req.query.buscar;
+    
+    let filter = {};
+    if (searchTerm && searchTerm !== "") {
+      const regex = new RegExp(searchTerm, 'i');
+      if (searchTerm.match(/^[0-9a-fA-F]{24}$/)) {
+        filter._id = searchTerm;
+      } else {
+        filter.$or = [
+          { firstname: regex },
+          { lastname: regex },
+          { email: regex },
+        ];
+      }
+    }
+    const admins = await Admin.find(filter);
+    return res.json({ admins });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
 
 // Display the specified resource.

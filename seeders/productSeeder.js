@@ -428,6 +428,18 @@ module.exports = async () => {
       shortDescription: "Kit de regalo",
       isActive: true,
     },
+    {
+      name: "Kit de regalo",
+      description:
+        "Kit de regalo",
+      photo: "Kits_1.png",
+      price: "2000",
+      stock: 15,
+      category: "Kits de regalos",
+      featured: false,
+      shortDescription: "Kit de regalo",
+      isActive: true,
+    },
   ];
 
   for (const product of products) {
