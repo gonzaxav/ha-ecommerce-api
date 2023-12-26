@@ -17,10 +17,10 @@ async function newToken(req, res) {
 
 async function adminToken(req, res) {
   const admin = await Admin.findOne({ email: req.body.email });
-  if (!admin) return res.json({ msg: "Usuario y/o contraseña incorrectos" });
+  if (!admin) return res.json({ msg: "El usuario y/o contraseña son incorrectos" });
 
   const verifyPassword = await bcrypt.compare(req.body.password, admin.password);
-  if (!verifyPassword) return res.json({ msg: "Usuario y/o contraseña incorrectos" });
+  if (!verifyPassword) return res.json({ msg: "El usuario y/o contraseña son incorrectos" });
 
   const token = jwt.sign({ sub: admin._id }, process.env.JWT_ADMIN_SECRET);
 
