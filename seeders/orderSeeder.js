@@ -19,8 +19,10 @@ const Product = require("../models/Product");
 
 module.exports = async () => {
   const clientRico = await Client.findOne({ lastname: "Rico" });
+  const clientPobre = await Client.findOne({ lastname: "Pobre" });
   const product1 = await Product.findOne({ name: "Brasil Crucera" });
   const product2 = await Product.findOne({ name: "Café de la Casa" });
+  const product3 = await Product.findOne({ name: "Filtros Reutilizables" });
 
   const orders = [];
 
@@ -42,6 +44,30 @@ module.exports = async () => {
     orderstate: "entregado",
   });
   orders.push(order1);
+  const order2 = new Order({
+    client: clientRico._id,
+    products: [
+      { productId: product2._id, 
+        name: product2.name, 
+        price: product2.price, 
+        qty: 1,
+        slug: product2.slug,
+      }],
+    orderstate: "en tránsito",
+  });
+  orders.push(order2);
+  const order3 = new Order({
+    client: clientPobre._id,
+    products: [
+      { productId: product3._id, 
+        name: product3.name, 
+        price: product3.price, 
+        qty: 1,
+        slug: product3.slug,
+      }],
+    orderstate: "pago pendiente",
+  });
+  orders.push(order3);
 
   clientRico.orders = orders;
   await clientRico.save();
